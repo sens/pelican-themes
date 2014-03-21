@@ -97,8 +97,10 @@
             <li class="nav-header"> 
               Site
             </li>
+	    <!--
             <li><a href="{{ SITEURL }}"><i class="icon-home" style="color: #1f334b">
                 </i>Home</a></li>
+	    -->
             <li><a href="{{ SITEURL }}/archives.html"><i class="icon-list" style="color: #1f334b">
                 </i>Archives</a></li>
 	    <li><a href="{{ SITEURL }}/tags.html"><i class="icon-tags" style="color: #1f334b">
@@ -109,9 +111,11 @@
                 <i class="icon-rss" style="color: #1f334b"></i>
                 RSS Feed</a></li>
 	    {% endif %}
+	    <!--
             <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">
                 <i class="icon-rss-sign" style="color: #1f334b"></i>
                 Atom Feed</a></li>
+	    -->
 	  </ul>
 
         </div>
@@ -120,7 +124,7 @@
     </div> <!--end of blog-footer-->
     <hr />
     <p align="center"><a href="{{ SITEURL }}">{{ SITENAME }}</a>
-      &copy; {{ AUTHOR }}
+      &copy; {{ AUTHOR }} || 
     Powered by <a href="github.com/getpelican/pelican">Pelican</a> and
         <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>. 
         Icons by <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
