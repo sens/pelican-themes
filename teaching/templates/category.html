@@ -1,2 +1,37 @@
 {% extends "index.html" %}
 {% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
+
+{% block content %}
+
+<!-- <section id="content" class="body"> -->
+<!--   <h2>{{ category }}</h2> -->
+<!-- </section> -->
+
+  {% if category not in LONG %}
+     <section id="content" class="body">
+    {% for article in dates %}
+        <dl>
+        <dt>{{ article.date.strftime("%d %b %Y") }}</td>
+        <dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
+        </dl>
+    {% endfor %}
+     </section>
+  {% endif %}
+
+  {% if category in LONG %}
+    {% for article in dates %}
+     <section id="content" class="body">
+       <h2>{{ article.title }}</h2>
+        <div class="entry-content">
+          {% include 'article_infos.html' %}
+          {{ article.content }}
+        </div>
+     </section>
+<!-- /.entry-content -->
+    {% endfor %}
+  {% endif %}
+
+
+
+{% endblock %}
+
