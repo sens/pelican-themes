@@ -1,18 +1,18 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 {% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
 
 {% block content %}
 
-<!-- <section id="content" class="body"> -->
-<!--   <h2>{{ category }}</h2> -->
-<!-- </section> -->
+<section id="content" class="body">
+  <h2>{{ category }}</h2>
+</section>
 
   {% if category not in LONG %}
      <section id="content" class="body">
     {% for article in dates %}
         <dl>
-        <dt>{{ article.date.strftime("%d %b %Y") }}</td>
-        <dd><a href='{{ article.url }}'>{{ article.title }}</a></dd>
+        <dt>{{ article.date.strftime("%d %b %Y") }}</dt>
+        <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
         </dl>
     {% endfor %}
      </section>
