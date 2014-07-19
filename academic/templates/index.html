@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+
+{% block content %}
+
+<section id="content" class="body">
+
+{% if SHOW_TAGS_ON_INDEX %}
+<footer class="post-info">
+  <h3>Tags </h3>
+  <ul>
+    {% for tag, articles in tags|sort %}
+    <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
+    {% endfor %}
+  </ul>
+</footer>
+{% endif %}
+
+    {% for article in dates %}
+        <dl>
+        <dt>{{ article.date.strftime("%d %b %Y") }}</td>
+        <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
+        </dl>
+    {% endfor %}
+
+</section>
+
+
+{% endblock content %}

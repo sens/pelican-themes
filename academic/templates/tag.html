@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
+{% block content %}
+
+<section id="content" class="body">
+  <h2>{{ tag }}</h2>
+</section>
+
+<section id="content" class="body">
+  {% for article in dates %}
+  <dl>
+    <dt>{{ article.date.strftime("%d %b %Y") }}</dt>
+    <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
+  </dl>
+  {% endfor %}
+</section>
+
+{% endblock %}
+
