@@ -10,14 +10,24 @@
 -->
 
   {% if category not in LONG %}
+    {% if category in DATEWISE %}
      <section id="content" class="body">
-    {% for article in dates %}
+      {% for article in dates %}
         <dl>
         <dt>{{ article.date.strftime("%d %b %Y") }}</dt>
         <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
         </dl>
-    {% endfor %}
+      {% endfor %}
+    {% else %}
+     <section id="content" class="body">
+      {% for article in dates %}
+        <dl>
+        <dt><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dt>
+	<dd>{{ article.summary }}</dd>
+        </dl>
+      {% endfor %}
      </section>
+    {% endif %}
   {% endif %}
 
   {% if category in LONG %}
