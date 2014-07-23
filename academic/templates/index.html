@@ -18,8 +18,8 @@
 
     {% for article in dates if FRONT in article.tags %}
         <dl>
-        <dt>{{ article.date.strftime("%d %b %Y") }}</td>
-        <dd><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></dd>
+        <dt><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></td>
+        <dd>{{ article.summary }}</dd>
         </dl>
     {% endfor %}
 
