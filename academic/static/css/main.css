@@ -208,9 +208,11 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	}
 	#banner nav a:hover, #banner nav a:active,
 	#banner nav .active a:link, #banner nav .active a:visited {
-		background: #F5F4EF;
+		/* background: #C74350; */
 		/* color: #fff; */
-		color: #00305;
+		background: #F5F4EF;
+		/* color: #00305; */
+		color: #C74350;
 		text-decoration: underline;
 		text-shadow: none !important;
 	}
