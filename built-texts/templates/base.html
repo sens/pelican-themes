@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ DEFAULT_LANG }}">
 <head>
+    {% block head %}
+
     <meta charset="utf-8">
-    <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta name="description" content="">
     <meta name="author" content="{{ AUTHOR }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +13,21 @@
     <script src="{{ SITEURL }}/theme/html5.js"></script>
     <![endif]-->
 
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+
     <!-- Le styles -->
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.no-icons.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/font-awesome.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gudea:400,400italic|Alegreya+SC' rel='stylesheet' type='text/css'>
+
+    {% endblock head %}
 </head>
 
 <body>
@@ -108,15 +119,15 @@
                 </i>Tags</a></li>
 	    
 	    {% if FEED_RSS %}
-	    <li> <a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate">
+	    <li> <a href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" rel="alternate">
                 <i class="icon-rss" style="color: #1f334b"></i>
                 RSS Feed</a></li>
 	    {% endif %}
-	    <!--
-            <li><a href="{{ SITEURL }}/{{ FEED }}" rel="alternate">
-                <i class="icon-rss-sign" style="color: #1f334b"></i>
+	    {% if FEED_ATOM %}
+	    <li> <a href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" rel="alternate">
+                <i class="icon-rss" style="color: #1f334b"></i>
                 Atom Feed</a></li>
-	    -->
+	    {% endif %}
 	  </ul>
 
         </div>
@@ -125,18 +136,18 @@
     </div> <!--end of blog-footer-->
     <hr />
     <p align="center"><a href="{{ SITEURL }}">{{ SITENAME }}</a>
-      &copy; {{ AUTHOR }} || 
-    Powered by <a href="github.com/getpelican/pelican">Pelican</a> and
+      &copy; {{ AUTHOR }}
+    Powered by <a href="https://github.com/getpelican/pelican">Pelican</a> and
         <a href="https://twitter.github.com/bootstrap">Twitter Bootstrap</a>. 
-        Icons by <a href="http://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
-        <a href="http://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
+        Icons by <a href="https://fortawesome.github.com/Font-Awesome">Font Awesome</a> and 
+        <a href="https://gregoryloucas.github.com/Font-Awesome-More">Font Awesome More</a></p>
 
   </div> <!--end of well -->
 </div> <!--end of container -->
 
 <!--/footer-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
 
 
 {% include "analytics.html" %}
